@@ -10,6 +10,9 @@ namespace Task2_Dictionary_
     {
         static void Main(string[] args)
         {
+            var group = ActionsWithDictionary.ReadDictionary();
+            ActionsWithDictionary.OutputDictionary(group);
+
         }
     }
 }
