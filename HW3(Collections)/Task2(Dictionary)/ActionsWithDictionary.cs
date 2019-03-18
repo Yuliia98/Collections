@@ -12,31 +12,28 @@ namespace Task2_Dictionary_
             Console.WriteLine("Please enter students and their marks (enter 'stop' to finish).\n" +
                               "Format is: Surname (one word): Mark (one digtit from 0 to 5) and ':' is a separator here\n" +
                               "ie. Ivan:5");
-            string input;
-            do
+            var input = Console.ReadLine();
+            while (input != "stop")
             {
-                input = Console.ReadLine();
-                if (input != "stop")
+                try
                 {
-                    try
+                    var words = input?.Trim().Split(':');
+                    int.TryParse(words[1], out var mark);
+                    if (mark > 0 && mark < 6)
                     {
-                        var words = input?.Trim().Split(':');
-                        int.TryParse(words[1], out var mark);
-                        if (mark > 0 && mark < 6)
-                        {
-                            group.Add(words[0], mark);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Mark should be from 1 to 5. Desired format: Surname:Mark");
-                        }
+                        group.Add(words[0], mark);
                     }
-                    catch (Exception)
+                    else
                     {
-                        Console.WriteLine("Incorrect input - desired format: Surname:Mark. Or input 'stop' to to finish!");
+                        Console.WriteLine("Mark should be from 1 to 5. Desired format: Surname:Mark");
                     }
                 }
-            } while (input != "stop");
+                catch (Exception)
+                {
+                    Console.WriteLine("Incorrect input - desired format: Surname:Mark. Or input 'stop' to to finish!");
+                }
+                input = Console.ReadLine();
+            }
             return group;
         }
 

@@ -15,7 +15,6 @@ namespace Task1_List_
                 try
                 {
                     numbers.Add(int.Parse(input ?? throw new InvalidOperationException()));
-
                 }
                 catch (Exception ex)
                 {
