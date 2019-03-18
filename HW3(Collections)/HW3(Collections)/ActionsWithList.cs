@@ -7,23 +7,23 @@ namespace Task1_List_
     {
         public static List<int> ReadList()
         {
-            var input = " ";
+
             var numbers = new List<int>();
             Console.WriteLine("Please enter int numbers to the list (enter 'stop' to finish)");
-            input = Console.ReadLine();
+            var input = Console.ReadLine();
             while (input != "stop")
             {
                 try
                 {
-                    numbers.Add(int.Parse(input));
+                    numbers.Add(int.Parse(input ?? throw new InvalidOperationException()));
 
                 }
-                catch (FormatException ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine($"Incorrect input: {ex.Message}");
                 }
                 input = Console.ReadLine();
-            };
+            }
             return numbers;
         }
 

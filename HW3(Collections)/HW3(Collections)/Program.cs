@@ -10,7 +10,7 @@ namespace Task1_List_
             ActionsWithList.OutputList(numbers);
             ActionsWithList.OutputDescendingList(numbers);
             ActionsWithList.OutputShortList(numbers);
-            Console.ReadKey();
+            
         }
     }
 }
