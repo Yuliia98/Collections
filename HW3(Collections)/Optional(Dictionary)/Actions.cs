@@ -35,9 +35,9 @@ namespace Optional_Dictionary_
                             try
                             {
                                 var students = data.Split(',');
-                                for (int i = 0; i < students.Length; i++)
+                                foreach (var student in students)
                                 {
-                                    var dataOfStud = students[i].Trim().Split(':');
+                                    var dataOfStud = student.Trim().Split(':');
                                     dict[input].Add(new Student(dataOfStud[0], int.Parse(dataOfStud[1])));
                                 }
                                 break;
